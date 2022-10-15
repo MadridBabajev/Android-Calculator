@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/drawable/calc_custom_buttons_portrait.xml" value="0.1" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/drawable/calc_custom_buttons_portrait_main_day.xml" value="0.3635" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/drawable/calc_custom_buttons_portrait_main_landscape_day.xml" value="0.3625" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/drawable/calc_custom_buttons_portrait_main_landscape_night.xml" value="0.3635" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/drawable/calc_custom_buttons_portrait_main_night.xml" value="0.3635" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/drawable/calc_custom_buttons_portrait_night.xml" value="0.1" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/drawable/calc_custom_buttons_portrait_right_night.xml" value="0.1" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/drawable/calc_custom_buttons_portrait_special_day.xml" value="0.1" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/drawable/calc_custom_buttons_portrait_special_landscape_day.xml" value="0.1925" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/drawable/calc_custom_buttons_portrait_special_landscape_night.xml" value="0.3625" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/drawable/calc_custom_buttons_portrait_upper_night.xml" value="0.1" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/drawable/ic_backspace.xml" value="0.1" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/drawable/ic_previous_calculations.xml" value="0.1" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/drawable/ic_rotate.xml" value="0.1" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/layout-land/activity_main.xml" value="0.5" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/layout-land/activity_settings.xml" value="0.33" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/layout-land/main_calculator_buttons.xml" value="0.33" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/layout-land/main_calculator_separator.xml" value="0.33" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/layout/activity_settings.xml" value="0.25" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/layout/main_calculator_buttons.xml" value="0.2978723404255319" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/layout/main_calculator_input.xml" value="0.3472222222222222" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/layout/main_calculator_separator.xml" value="0.33" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/layout/test.xml" value="0.3472222222222222" />
+        <entry key="..\:/Users/Madrid Babajev/AndroidStudioProjects/Homework2/app/src/main/res/menu/calculator_menu.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
