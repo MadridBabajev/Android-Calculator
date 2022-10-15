@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.375" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.125" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.625" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.875" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonClear"
+        style="@style/mainButtonsLandscape"
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/actionClear"
+        android:textColor="#A93226"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="@+id/guideline14"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonSquareRoot"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/subSquareRoot"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14"
+        app:layout_constraintStart_toStartOf="@+id/guideline13"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonAbsValue"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/subAbs"
+        app:layout_constraintBottom_toTopOf="@+id/guideline17"
+        app:layout_constraintEnd_toStartOf="@+id/guideline16"
+        app:layout_constraintStart_toStartOf="@+id/guideline15" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonExponentToThePowerOf"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/subExponentPower"
+        app:layout_constraintBottom_toTopOf="@+id/guideline19"
+        app:layout_constraintEnd_toStartOf="@+id/guideline16"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonLn"
+        style="@style/mainButtonsLandscape"
+        android:layout_marginEnd="4dp"
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/subLn"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline16"
+        app:layout_constraintHorizontal_bias="0.714"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toTopOf="@+id/guideline8" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonSin"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/subSin"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        app:layout_constraintEnd_toStartOf="@+id/guideline16"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toTopOf="@+id/guideline7" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonMore"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/subMore"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline16"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonPi"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/subPi"
+        app:layout_constraintBottom_toTopOf="@+id/guideline17"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintStart_toStartOf="@+id/guideline16" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonRoot"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/subRoot"
+        app:layout_constraintBottom_toTopOf="@+id/guideline19"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintStart_toStartOf="@+id/guideline16"
+        app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonLog"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/subLog"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintStart_toStartOf="@+id/guideline16"
+        app:layout_constraintTop_toTopOf="@+id/guideline8" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonCos"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/subCos"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintStart_toStartOf="@+id/guideline16"
+        app:layout_constraintTop_toTopOf="@+id/guideline7" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonRad"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/subRad"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintStart_toStartOf="@+id/guideline16"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonExponent"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/subExponent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline17"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14"
+        app:layout_constraintStart_toStartOf="@+id/guideline13" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonToThePowerOf"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/subPower"
+        app:layout_constraintBottom_toTopOf="@+id/guideline19"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14"
+        app:layout_constraintStart_toStartOf="@+id/guideline13"
+        app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonUpsideDown"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/subUpsideDown"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14"
+        app:layout_constraintStart_toStartOf="@+id/guideline13"
+        app:layout_constraintTop_toTopOf="@+id/guideline8" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonTan"
+        style="@style/mainButtonsLandscape"
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/subTan"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14"
+        app:layout_constraintStart_toStartOf="@+id/guideline13"
+        app:layout_constraintTop_toTopOf="@+id/guideline7" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonBrackets"
+        style="@style/specialButtonsLandscape"
+        android:onClick="actionOnClick"
+        android:text="@string/actionBracket"
+
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonEvaluate"
+        style="@style/specialButtonsLandscape"
+        android:onClick="evaluateOnClick"
+        android:text="@string/actionEvaluate"
+        app:layout_constraintBottom_toTopOf="@+id/guideline17"
+        app:layout_constraintEnd_toStartOf="@+id/guideline18"
+        app:layout_constraintStart_toStartOf="@+id/guideline6" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonDot"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="actionOnClick"
+        android:text="@string/actionDot"
+        app:layout_constraintBottom_toTopOf="@+id/guideline17"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintStart_toStartOf="@+id/guideline5" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonNum0"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/num0"
+        app:layout_constraintBottom_toTopOf="@+id/guideline17"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline4" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonReverse"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="actionOnClick"
+        android:text="@string/actionReverse"
+        app:layout_constraintBottom_toTopOf="@+id/guideline17"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="@+id/guideline14" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonPlus"
+        style="@style/specialButtonsLandscape"
+        android:onClick="actionOnClick"
+        android:text="@string/actionPlus"
+        app:layout_constraintBottom_toTopOf="@+id/guideline19"
+        app:layout_constraintEnd_toStartOf="@+id/guideline18"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonNum3"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/num3"
+        app:layout_constraintBottom_toTopOf="@+id/guideline19"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonNum2"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/num2"
+        app:layout_constraintBottom_toTopOf="@+id/guideline19"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonNum1"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/num1"
+        app:layout_constraintBottom_toTopOf="@+id/guideline19"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintStart_toStartOf="@+id/guideline14"
+        app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonMinus"
+        style="@style/specialButtonsLandscape"
+        android:onClick="actionOnClick"
+        android:text="@string/actionMinus"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline18"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toTopOf="@+id/guideline8" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonNum6"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/num6"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="@+id/guideline8" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonNum5"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/num5"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/guideline8" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonNum4"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/num4"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintStart_toStartOf="@+id/guideline14"
+        app:layout_constraintTop_toTopOf="@+id/guideline8" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonMultiplication"
+        style="@style/specialButtonsLandscape"
+        android:onClick="actionOnClick"
+        android:text="@string/actionMultiplication"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        app:layout_constraintEnd_toStartOf="@+id/guideline18"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toTopOf="@+id/guideline7" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonNum9"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/num9"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="@+id/guideline7" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonNum8"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/num8"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/guideline7" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonNum7"
+        style="@style/mainButtonsLandscape"
+
+        android:onClick="putNumberOrSubOnClick"
+        android:text="@string/num7"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintStart_toStartOf="@+id/guideline14"
+        app:layout_constraintTop_toTopOf="@+id/guideline7" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonDivision"
+        style="@style/specialButtonsLandscape"
+        android:onClick="actionOnClick"
+        android:text="@string/actionDiv"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline18"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonPercentage"
+        style="@style/specialButtonsLandscape"
+        android:onClick="actionOnClick"
+        android:text="@string/actionPercentage"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

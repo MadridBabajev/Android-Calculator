@@ -1,3 +1,41 @@
 <resources>
     <string name="app_name">CalculatorApp</string>
+    <string name="num1">1</string>
+    <string name="num2">2</string>
+    <string name="num3">3</string>
+    <string name="num4">4</string>
+    <string name="num5">5</string>
+    <string name="num6">6</string>
+    <string name="num7">7</string>
+    <string name="num8">8</string>
+    <string name="num9">9</string>
+    <string name="num0">0</string>
+    <string name="actionPlus">+</string>
+    <string name="actionMinus">-</string>
+    <string name="actionMultiplication">×</string>
+    <string name="actionDiv">÷</string>
+    <string name="actionBracket">()</string>
+    <string name="actionPercentage">%</string>
+    <string name="actionClear">C</string>
+    <string name="actionEvaluate">=</string>
+    <string name="actionReverse">+/-</string>
+    <string name="actionDot">.</string>
+    <string name="subSquareRoot">√</string>
+    <string name="subRad">Rad</string>
+    <string name="subMore">↹</string>
+    <string name="subTan">tan</string>
+    <string name="subCos">cos</string>
+    <string name="subSin">sin</string>
+    <string name="subUpsideDown">1/x</string>
+    <string name="subLog">log</string>
+    <string name="subLn">ln</string>
+    <string name="subPower">x^y</string>
+    <string name="subRoot">^2</string>
+    <string name="subExponentPower">e^x</string>
+    <string name="subExponent">e</string>
+    <string name="subPi">π</string>
+    <string name="subAbs">|x|</string>
+    <string name="settings">Settings</string>
+    <string name="nightMode">NightMode</string>
+    <string name="goBack">Back</string>
 </resources>

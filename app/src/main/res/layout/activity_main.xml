@@ -6,13 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <include
+        android:id="@+id/includeSeparator"
+        layout="@layout/main_calculator_separator"
+        android:layout_width="407dp"
+        android:layout_height="86dp"
+        app:layout_constraintBottom_toTopOf="@+id/includeKeyboard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <include
+        android:id="@+id/includeKeyboard"
+        layout="@layout/main_calculator_buttons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewCalcInput"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:maxLines="1"
+        android:text="@string/num0"
+        android:textSize="48sp"
+        android:fontFamily="@font/rcrocket_regular"
+        android:typeface="serif"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/includeSeparator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
