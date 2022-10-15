@@ -13,6 +13,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import java.lang.IllegalStateException
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     companion object {
         private val TAG = this::class.java.declaringClass!!.simpleName
         private const val MAX_CAPACITY = 20;
+        private val EVALUATION_HANDLER = EvaluationHandler()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -243,7 +245,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun evaluateOnClick(view: View) {
-        Toast.makeText(this, "Not implemented yet", Toast.LENGTH_LONG).show()
+        try {
+            if (lastBracketWasOpen()) putCorrectBracket()
+            textViewCalcInput.text = EvaluationHandler.evaluate(textViewCalcInput.text.toString())
+        } catch (e: IllegalArgumentException) {
+            Toast.makeText(this, "Invalid input format!", Toast.LENGTH_LONG).show()
+        }
     }
 
     fun rotationPressed(view: View) {
