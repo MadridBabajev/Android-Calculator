@@ -2,6 +2,7 @@ package com.example.calculatorapp
 
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
@@ -245,10 +246,16 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, "Not implemented yet", Toast.LENGTH_LONG).show()
     }
 
-    fun historyPressed(view: View) {
-
-    }
     fun rotationPressed(view: View) {
+        val orientation = this.resources.configuration.orientation
+        requestedOrientation = if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+            ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+        } else {
+            ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        }
+    }
+
+    fun historyPressed(view: View) {
 
     }
 
