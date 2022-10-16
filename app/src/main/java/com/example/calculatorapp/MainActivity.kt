@@ -1,10 +1,11 @@
 package com.example.calculatorapp
 
+import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -13,65 +14,67 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import java.lang.IllegalStateException
+import androidx.lifecycle.ViewModelProvider
+import com.example.calculatorapp.data.model.Calculation
+import com.example.calculatorapp.data.viewmodel.CalculationViewModel
+import java.lang.RuntimeException
 
 class MainActivity : AppCompatActivity() {
 
-    // TODO History button (clear history)
-    // TODO Rotation button
-    // TODO Evaluate and Save Calculations
-    // TODO Save calcs using SQLite
+    private lateinit var mCalculationViewModel: CalculationViewModel
     private lateinit var textViewCalcInput: TextView
-    lateinit var historyButton: ImageButton
+    private lateinit var historyButton: ImageButton
     lateinit var rotateButton: ImageButton
     lateinit var backSpaceButton: ImageButton
-    lateinit var sharedPreferences: SharedPreferences
-    lateinit var editor: SharedPreferences.Editor
+    lateinit var includeKeyboard: View
+    lateinit var includeCalculations: View
     private var actionAdded = false
+    private var showingHistory = true
 
     companion object {
         private val TAG = this::class.java.declaringClass!!.simpleName
-        private const val MAX_CAPACITY = 20;
-        private val EVALUATION_HANDLER = EvaluationHandler()
+        private const val MAX_CAPACITY = 20
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        mCalculationViewModel = ViewModelProvider(this)[CalculationViewModel::class.java]
+
         textViewCalcInput = findViewById(R.id.textViewCalcInput)
         historyButton = findViewById(R.id.buttonPreviousCalcs)
         rotateButton = findViewById(R.id.buttonChangePortrait)
         backSpaceButton = findViewById(R.id.buttonBackspace)
-
-        sharedPreferences = getSharedPreferences("nightNodeMain", MODE_PRIVATE)
-        editor = sharedPreferences.edit()
+        includeKeyboard = findViewById(R.id.includeKeyboard)
+        includeCalculations = findViewById(R.id.includeCalculations)
+        includeCalculations.visibility = View.GONE
 
     // TODO for some reason it keeps loading that,
 //         even though it is currently in another activity and
 //         onCreate() should be unreachable?
 
-//        val nightMode = sharedPreferences.getBoolean("nightMode", false)
+//        val sharedPref = getPreferences(Context.MODE_PRIVATE) ?: return
+//        val nightMode = sharedPref.getBoolean(getString(R.string.nightMode), false)
 //        if (nightMode) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
 //        else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 
     override fun onDestroy() {
         super.onDestroy()
+
+        val sharedPref = getPreferences(Context.MODE_PRIVATE) ?: return
         val nightModeFlags = this.resources
             .configuration.uiMode.and(Configuration.UI_MODE_NIGHT_MASK)
         var nightMode = false
         when (nightModeFlags) {
-            Configuration.UI_MODE_NIGHT_YES -> {
-                nightMode = true
-            }
-
-            Configuration.UI_MODE_NIGHT_NO -> {
-                nightMode = false
-            }
+            Configuration.UI_MODE_NIGHT_YES -> nightMode = true
+            Configuration.UI_MODE_NIGHT_NO -> nightMode = false
         }
-        editor.apply {
-            putBoolean("nightMode", nightMode)
-            apply()
+
+        with (sharedPref.edit()) {
+            putBoolean(getString(R.string.nightMode), nightMode)
+            commit()
         }
     }
 
@@ -107,7 +110,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun clearInputOnClick(view: View) {
-        textViewCalcInput.text = "0"
+        textViewCalcInput.text = getString(R.string.num0)
     }
 
     fun actionOnClick(view: View) {
@@ -115,18 +118,25 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Max capacity of $MAX_CAPACITY symbols reached!", Toast.LENGTH_LONG).show()
             return
         }
-        when (view.id) {
-            R.id.buttonMinus -> handleSimpleAction("-") // handleSimpleAction(R.string.actionMinus.toString())
-            R.id.buttonDivision -> handleSimpleAction("÷") // handleSimpleAction(R.string.actionDiv.toString())
-            R.id.buttonMultiplication -> handleSimpleAction("×") // handleSimpleAction(R.string.actionMultiplication.toString())
-            R.id.buttonPlus -> handleSimpleAction("+") // handleSimpleAction(R.string.actionPlus.toString())
-            R.id.buttonDot -> handleSimpleAction(".") // handleSimpleAction(R.string.actionDot.toString())
-            R.id.buttonPercentage -> calculatePercentage()
-            R.id.buttonMore -> openMoreOperations()
-            R.id.buttonBrackets -> putCorrectBracket()
+        try {
+            when (view.id) {
+                R.id.buttonMinus -> handleSimpleAction(getString(R.string.actionMinus)) // handleSimpleAction(R.string.actionMinus.toString())
+                R.id.buttonDivision -> handleSimpleAction(getString(R.string.actionDiv)) // handleSimpleAction(R.string.actionDiv.toString())
+                R.id.buttonMultiplication -> handleSimpleAction(getString(R.string.actionMultiplication)) // handleSimpleAction(R.string.actionMultiplication.toString())
+                R.id.buttonPlus -> handleSimpleAction(getString(R.string.actionPlus)) // handleSimpleAction(R.string.actionPlus.toString())
+                R.id.buttonDot -> handleSimpleAction(getString(R.string.actionDot)) // handleSimpleAction(R.string.actionDot.toString())
+                R.id.buttonPercentage -> calculatePercentage()
+                R.id.buttonMore -> openMoreOperations()
+                R.id.buttonBrackets -> Toast.makeText(
+                    this, "Operations with brackets not supported :(", Toast.LENGTH_LONG).show() // putCorrectBracket()
+            }
+        } catch (e: RuntimeException) {
+            Toast.makeText(this, "Invalid input!", Toast.LENGTH_LONG).show()
         }
+
     }
 
+    // Not implemented for now :(
     private fun putCorrectBracket() {
         val output: String = if (lastBracketWasOpen()) textViewCalcInput.text.toString() + ")"
         else textViewCalcInput.text.toString() + "("
@@ -198,16 +208,16 @@ class MainActivity : AppCompatActivity() {
             return
         }
         val outputSymbol: String = when (view.id) {
-            R.id.buttonNum1 -> "1"// R.string.num1.toString()
-            R.id.buttonNum2 -> "2"// R.string.num2.toString()
-            R.id.buttonNum3 -> "3"// R.string.num3.toString()
-            R.id.buttonNum4 -> "4"// R.string.num4.toString()
-            R.id.buttonNum5 -> "5"// R.string.num5.toString()
-            R.id.buttonNum6 -> "6"// R.string.num6.toString()
-            R.id.buttonNum7 -> "7"// R.string.num7.toString()
-            R.id.buttonNum8 -> "8"// R.string.num8.toString()
-            R.id.buttonNum9 -> "9"// R.string.num9.toString()
-            R.id.buttonSquareRoot -> "√("// R.string.subSquareRoot.toString() + "("
+            R.id.buttonNum1 -> getString(R.string.num1)
+            R.id.buttonNum2 -> getString(R.string.num2)
+            R.id.buttonNum3 -> getString(R.string.num3)
+            R.id.buttonNum4 -> getString(R.string.num4)
+            R.id.buttonNum5 -> getString(R.string.num5)
+            R.id.buttonNum6 -> getString(R.string.num6)
+            R.id.buttonNum7 -> getString(R.string.num7)
+            R.id.buttonNum8 -> getString(R.string.num8)
+            R.id.buttonNum9 -> getString(R.string.num9)
+            R.id.buttonSquareRoot -> getString(R.string.subSquareRoot)
             R.id.buttonRad, R.id.buttonSin, R.id.buttonCos, R.id.buttonTan, R.id.buttonUpsideDown,
             R.id.buttonLog, R.id.buttonLn, R.id.buttonToThePowerOf, R.id.buttonRoot,
             R.id.buttonExponentToThePowerOf, R.id.buttonExponent, R.id.buttonPi, R.id.buttonAbsValue
@@ -246,11 +256,32 @@ class MainActivity : AppCompatActivity() {
 
     fun evaluateOnClick(view: View) {
         try {
-            if (lastBracketWasOpen()) putCorrectBracket()
-            textViewCalcInput.text = EvaluationHandler.evaluate(textViewCalcInput.text.toString())
+//            if (lastBracketWasOpen()) putCorrectBracket()
+            val beforeCalculation = textViewCalcInput.text.toString()
+            val afterCalculation = EvaluationHandler.evaluate(textViewCalcInput.text.toString())
+            textViewCalcInput.text = afterCalculation
+            insertDataToDataBase(beforeCalculation, afterCalculation)
         } catch (e: IllegalArgumentException) {
             Toast.makeText(this, "Invalid input format!", Toast.LENGTH_LONG).show()
         }
+    }
+
+    private fun insertDataToDataBase(beforeCalculation: String, afterCalculation: String) {
+
+        if (fieldsCheck(beforeCalculation, afterCalculation)) {
+            val calculation = Calculation(0, beforeCalculation, afterCalculation)
+            // Adding data to database
+            mCalculationViewModel.addCalculation(calculation)
+        }
+    }
+
+    private fun fieldsCheck(expression: String, result: String): Boolean {
+        return !(TextUtils.isEmpty(expression) || TextUtils.isEmpty(result)) && (expression != result)
+    }
+
+    fun clearHistoryOnClick(view: View) {
+        mCalculationViewModel.deleteAllCalculations()
+        Toast.makeText(this, "History cleared!", Toast.LENGTH_LONG).show()
     }
 
     fun rotationPressed(view: View) {
@@ -263,7 +294,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun historyPressed(view: View) {
-
+        if (showingHistory) {
+            includeKeyboard.visibility = View.VISIBLE
+            includeCalculations.visibility = View.GONE
+        } else {
+            includeKeyboard.visibility = View.GONE
+            includeCalculations.visibility = View.VISIBLE
+        }
+        showingHistory = !showingHistory
     }
 
     private fun openMoreOperations() {

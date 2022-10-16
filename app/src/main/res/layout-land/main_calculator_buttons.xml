@@ -85,7 +85,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonClear"
         style="@style/mainButtonsLandscape"
-        android:onClick="putNumberOrSubOnClick"
+        android:onClick="clearInputOnClick"
         android:text="@string/actionClear"
         android:textColor="#A93226"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
