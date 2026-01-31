@@ -1,23 +1,25 @@
 package com.example.calculatorapp.fragments.list
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.calculatorapp.R
 import com.example.calculatorapp.data.model.Calculation
-import kotlinx.android.synthetic.main.custom_row.view.*
+import com.example.calculatorapp.databinding.CustomRowBinding
 
 class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
     private var calculationsList = emptyList<Calculation>()
 
-    class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-
+    class MyViewHolder(private val binding: CustomRowBinding): RecyclerView.ViewHolder(binding.root) {
+        fun bind(calculation: Calculation) {
+            binding.textViewExpression.text = calculation.expression
+            binding.textViewResult.text = calculation.result
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.custom_row, parent, false))
+        val binding = CustomRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MyViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
@@ -26,8 +28,7 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = calculationsList[position]
-        holder.itemView.textViewExpression.text = currentItem.expression
-        holder.itemView.textViewResult.text = currentItem.result
+        holder.bind(currentItem)
     }
 
     fun setData(calculations: List<Calculation>){

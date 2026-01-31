@@ -8,25 +8,24 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.calculatorapp.R
 import com.example.calculatorapp.data.viewmodel.CalculationViewModel
-import kotlinx.android.synthetic.main.fragment_list.view.*
+import com.example.calculatorapp.databinding.FragmentListBinding
 
 class ListFragment : Fragment() {
 
     private lateinit var mCalculationViewModel: CalculationViewModel
+    private var _binding: FragmentListBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_list, container, false)
+    ): View {
+        _binding = FragmentListBinding.inflate(inflater, container, false)
 
         // RecyclerView
         val adapter = ListAdapter()
-        val recyclerView = view.recyclerViewCalcs
+        val recyclerView = binding.recyclerViewCalcs
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
@@ -35,6 +34,11 @@ class ListFragment : Fragment() {
         mCalculationViewModel.readAllData.observe(viewLifecycleOwner, Observer { calculation ->
             adapter.setData(calculation)
          })
-        return view
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

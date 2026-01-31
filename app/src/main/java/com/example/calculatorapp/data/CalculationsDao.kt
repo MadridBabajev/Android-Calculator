@@ -8,10 +8,10 @@ import com.example.calculatorapp.data.model.Calculation
 interface CalculationsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addCalculation(calculation: Calculation)
+    fun addCalculation(calculation: Calculation)
 
     @Query("DELETE FROM calculations")
-    suspend fun deleteAllCalculations()
+    fun deleteAllCalculations()
 
     @Query("SELECT * FROM calculations ORDER BY id ASC")
     fun readAllData(): LiveData<List<Calculation>>
