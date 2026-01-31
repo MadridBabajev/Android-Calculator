@@ -35,15 +35,15 @@ It's a good thing the Gemini agent is quite powerful when it comes to Android de
 
 **Switching themes**
 
-<img src="./gifs/switch-theme.gif" alt="Switching light and dark themes" width="590" height="1248" />
+<img src="./gifs/switch-theme.gif" alt="Switching light and dark themes" width="295" height="625" />
 
 **Performing calculations**
 
-<img src="./gifs/performing-calcs.gif" alt="Performing calculations" width="590" height="1248" />
+<img src="./gifs/performing-calcs.gif" alt="Performing calculations" width="295" height="625" />
 
 **Viewing and clearing stored calculations**
 
-<img src="./gifs/clearing-calcs.gif" alt="Clearing calculations" width="590" height="1248" />
+<img src="./gifs/clearing-calcs.gif" alt="Clearing calculations" width="295" height="625" />
 
 ---
 
